@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/26e2f522d0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+   
+    <div class="container">
+        <h2>Url Shortener</h2>
+
+        <form action="/shortUrls" method="post" class="form-input">
+            <label for="fullUrl">Url</label>
+            <input type="url" name="fullUrl" id="fullUrl" size="100">
+            <button type="submit" class="btn">Add URL</button>
+            
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>full URL</th>
+                    <th>Shortened URL</th>
+                    <th>Count Clicks</th>
+                    <th>Last Time Visited</th>
+                </tr>
+            </thead>
+
+            <tbody class="table-body">
+                <% shortUrls.forEach((shortUrl) => { %>
+                <tr>
+                    
+                    <td ><a href="<%= shortUrl.fullUrl %>"><%= shortUrl.fullUrl %></a></td>
+                    <td ><a href="<%= shortUrl.short %>"><%= shortUrl.short %></a></td>
+                    <td ><%= shortUrl.countClicks %></td>
+                    <td ><%= shortUrl.lastDateClicked.toUTCString() %></td>
+                
+                    <td>
+                    <button class="btn-delete">Delete</button>
+                    </td>
+                </tr>
+               <% }) %> 
+                
+            </tbody>
+        </table>
+
+        <div class="btns">
+            <% if(prevPage > 0) { %> 
+            <a href="/?page=<%= prevPage %>">Previous Page</a>
+            <% } %> 
+            <a href="/?page=<%= nextPage %>">Next Page</a>
+        </div>
+
+    </div>
+    <script src="dom.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption&family=Poppins&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 800px;
+}
+
+table {
+    border: 1px solid black;
+    padding: 30px 20px;
+    max-width: 700px;
+}
+
+table tr th {
+    font-size: 20px;
+    margin: 0 15px;
+    padding: 10px 20px;
+    border-bottom: 1px solid blue;
+    
+}
+
+table tbody tr td {
+    width: 2%;
+}
+
+.form-input {
+    margin-bottom: 40px;
+}
+
+.close-btn {
+    cursor: pointer;
+    font-size: 25px;
+}
