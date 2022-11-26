@@ -26,8 +26,5 @@ const UrlSchema = new mongoose.Schema({
 
 })
 
-//UrlSchema.plugin(AutoIncrement, {id:'id_seq',inc_field: 'id'});
-
-
 
 module.exports = mongoose.model('ShortUrl',UrlSchema)

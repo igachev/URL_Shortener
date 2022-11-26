@@ -16,15 +16,32 @@ router.get('/',async (req,res) => {
     res.render('urlView',{shortUrls:shortUrls,nextPage:page+1,prevPage:page-1})
 }) 
 
+
+
+/*
 router.get('/all', async(req,res) => {
     const shortUrls = await ShortUrl.find()
    res.json({shortUrls})
     
 })
 
-router.post('/shortUrls', async (req,res) => {
+router.get('/all2',async (req,res) => {
+    let page = parseInt(req.query.page) || 1
+ console.log(page);
+ const startIndex = (page - 1) * 5
+ 
+  
+const shortUrls = await ShortUrl.find().limit(5).skip(startIndex).exec()
+     res.status(200).json({shortUrls})
+    
+ })
+*/
+
+
+ router.post('/shortUrls', async (req,res) => {
     await ShortUrl.create({fullUrl : req.body.fullUrl})
-    res.redirect('/')
+    res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
+    res.redirect(`back`)
 })
 
 router.get('/:shortUrl',async (req,res) => {
@@ -35,16 +52,19 @@ router.get('/:shortUrl',async (req,res) => {
     }
     shortUrl.countClicks++
     shortUrl.lastDateClicked = new Date()
-    shortUrl.save()
-    res.redirect(shortUrl.fullUrl)
+    await shortUrl.save()
+        
+        res.redirect(shortUrl.fullUrl)
+    
 })
 
 router.delete('/:shortUrl',async (req,res) => {
  
    const url = await ShortUrl.findOneAndDelete({short : req.params.shortUrl})
     res.status(200).json({url});
-   
-   
+
 })
+
+
 
 module.exports = router
