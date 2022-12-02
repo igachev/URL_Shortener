@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const ShortUrl = require('../models/ShortUrl')
+const shortId = require('shortid')
 
 router.get('/',async (req,res) => {
     let page = parseInt(req.query.page) || 1
@@ -18,13 +19,13 @@ router.get('/',async (req,res) => {
 
 
 
-/*
+
 router.get('/all', async(req,res) => {
     const shortUrls = await ShortUrl.find()
    res.json({shortUrls})
     
 })
-
+/*
 router.get('/all2',async (req,res) => {
     let page = parseInt(req.query.page) || 1
  console.log(page);
@@ -65,6 +66,21 @@ router.delete('/:shortUrl',async (req,res) => {
 
 })
 
-
+router.put('/all/:shortUrl', async (req,res) => {
+   
+   const urlId = await ShortUrl.findOne({short:req.params.shortUrl}) 
+    
+    if(req.body.fullUrl2 !== '') {
+        urlId.fullUrl = req.body.fullUrl2
+        urlId.countClicks = req.body.countClicks
+        urlId.lastDateClicked = req.body.lastDateClicked
+    }
+    
+    
+      //console.log(req.body.countClicks);
+     //console.log(req.body.fullUrl2);
+     await urlId.save()
+    res.status(200).json({urlId});  
+})
 
 module.exports = router

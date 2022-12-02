@@ -1,6 +1,4 @@
 
-
-
     let allDeleteBtns = document.querySelectorAll('.btn-delete')
 allDeleteBtns.forEach((btn) => {
     btn.addEventListener('click',async(e) => {
@@ -34,7 +32,36 @@ allDeleteBtns.forEach((btn) => {
     }) 
 
           
-    
+    let allUpdateBtns = document.querySelectorAll('.btn-update')
+    allUpdateBtns.forEach((btn) => {
+        btn.addEventListener('click',async(e) => {
+            try {
+                let id =  e.target.parentElement.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.textContent;
+                console.log(id);
+                let url = document.getElementById('fullUrl2').value
+                console.log(url);
+               
+              await fetch(`/all/${id}`,{
+                method:'PUT',
+                headers: {
+                    'Content-type':'application/json'
+                },
+                body:
+                    JSON.stringify({
+                    countClicks:0,
+                    fullUrl2:url,
+                    lastDateClicked: new Date()
+                    })
+                    
+            })
+              // .then(response => response.json())
+               // .then(data => console.log(data))
+               location.reload()
+            } catch (error) {
+                console.log(error);
+            }
+        })
+    })
    
    
     

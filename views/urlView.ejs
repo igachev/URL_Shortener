@@ -37,10 +37,11 @@
                     <td ><a href="<%= shortUrl.fullUrl %>"><%= shortUrl.fullUrl %></a></td>
                     <td class="short-url-btn btn-upd" ><a  href="<%= shortUrl.short %>" target="_blank"><%= shortUrl.short %></a></td>
                     <td ><%= shortUrl.countClicks %></td>
-                    <td ><%= shortUrl.lastDateClicked.toUTCString() %></td>
+                    <td ><%= shortUrl.lastDateClicked.toUTCString() || '' %></td>
                 
                     <td>
                     <button class="btn-delete">Delete</button>
+                    <button class="btn-update">Update</button>
                     </td>
                 </tr>
                <% }) %> 
@@ -54,6 +55,14 @@
             <% } %> 
             <a href="/?page=<%= nextPage %>">Next Page</a>
         </div>
+
+            <div class="update-fields">
+            <label for="fullUrl2">Update Existing URL</label>
+            <p>Enter new URL here and click Update on the selected row</p>
+            <input type="url" name="fullUrl2" id="fullUrl2" size="100">
+            </div>
+            
+        
 
     </div>
     <script src="dom.js"></script>
