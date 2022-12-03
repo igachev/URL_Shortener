@@ -8,9 +8,27 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    
+    background-color: #9D814C;
+    color: #fff;
 }
 
+.title {
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+#fullUrl {
+height: 40px;
+font-size: 21px;
+width: 600px;
+padding: 2px 4px;
+background-color: transparent;
+}
+
+#fullUrl::placeholder {
+    font-size: 21px;
+}
+ 
 .container {
     display: flex;
     flex-direction: column;
@@ -21,27 +39,64 @@ body {
 
 table {
     border: 1px solid black;
-    padding: 30px 20px;
+    padding: 10px 20px;
     max-width: 700px;
+    border-radius: 20px;
 }
 
 table tr th {
     font-size: 20px;
     margin: 0 15px;
-    padding: 10px 20px;
-    border-bottom: 1px solid blue;
-    
+    padding: 10px 10px; 
+    position: relative;   
+}
+
+table tr th::after {
+    content: "";
+  background: black;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 92%;
 }
 
 table tbody tr td {
     width: 2%;
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+
+table tbody tr td a {
+    text-decoration: none;
+    color: #fff;
+   display: inline-block;
+    transition: all 0.2s linear;
+}
+
+table tbody tr td a:hover {
+    transform: translateY(5px);
+    border-bottom: 1px solid yellow;
 }
 
 .form-input {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
-.close-btn {
+.form-input label {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.btn {
+    background-color: transparent;
     cursor: pointer;
-    font-size: 25px;
+    color: #fff;
+    font-size: 19px;
+    padding: 4px;
+    margin: 5px;
+}
+
+.del-upd-btns {
+    
 }

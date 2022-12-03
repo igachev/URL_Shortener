@@ -11,12 +11,12 @@
 <body>
    
     <div class="container">
-        <h2>Url Shortener</h2>
+        <h2 class="title">URL Shortener</h2>
 
         <form action="/shortUrls" method="post" class="form-input">
-            <label for="fullUrl">Url</label>
-            <input type="url" name="fullUrl" id="fullUrl" size="100">
-            <button type="submit" class="btn">Add URL</button>
+            <label for="fullUrl">URL</label>
+            <input type="url" name="fullUrl" id="fullUrl" size="100" placeholder="http://google.com...">
+            <button type="submit" class="btn add-btn">Add URL</button>
             
         </form>
 
@@ -35,14 +35,15 @@
                 <tr>
                     
                     <td ><a href="<%= shortUrl.fullUrl %>"><%= shortUrl.fullUrl %></a></td>
-                    <td class="short-url-btn btn-upd" ><a  href="<%= shortUrl.short %>" target="_blank"><%= shortUrl.short %></a></td>
+                    <td class="short-url-btn btn-upd btn" ><a  href="<%= shortUrl.short %>" target="_blank"><%= shortUrl.short %></a></td>
                     <td ><%= shortUrl.countClicks %></td>
                     <td ><%= shortUrl.lastDateClicked.toUTCString() || '' %></td>
                 
                     <td>
-                    <button class="btn-delete">Delete</button>
-                    <button class="btn-update">Update</button>
+                    <button class="btn-delete btn">Delete</button>
+                    <button class="btn-update btn">Update</button>
                     </td>
+
                 </tr>
                <% }) %> 
                 
