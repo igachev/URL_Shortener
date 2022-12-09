@@ -23,10 +23,17 @@ font-size: 21px;
 width: 600px;
 padding: 2px 4px;
 background-color: transparent;
+border-color: black;
 }
 
 #fullUrl::placeholder {
     font-size: 21px;
+    color: #fff;
+    opacity: 0.7;
+}
+
+#fullUrl:focus {
+    outline: none;
 }
  
 .container {
@@ -97,6 +104,65 @@ table tbody tr td a:hover {
     margin: 5px;
 }
 
-.del-upd-btns {
-    
+.add-btn {
+    padding: 7px;
+    border-radius: 10px;
+    font-weight: 500;
+    transition: all 0.3s linear;
 }
+
+.add-btn:hover {
+    color: #9D814C;
+    background-color: #fff;
+}
+
+.btn-delete, .btn-update {
+    font-weight: 500;
+    transition: all 0.3s linear;
+}
+
+.btn-update:hover {
+    color: #9D814C;
+    background-color: #fff;
+}
+
+.btn-delete:hover {
+    color: #9D814C;
+    background-color: #fff;
+}
+
+.btns {
+    margin-top: 8px;
+}
+
+.prev-page-btn,.next-page-btn {
+    text-decoration: none;
+    border: 1px solid black;
+    padding: 4px;
+}
+
+#fullUrl2 {
+    height: 40px;
+    font-size: 21px;
+    width: 600px;
+    padding: 2px 4px;
+    background-color: transparent;
+    border-color: black;
+    }
+    
+    #fullUrl2::placeholder {
+        font-size: 21px;
+        color: #fff;
+        opacity: 0.7;
+    }
+    
+    #fullUrl2:focus {
+        outline: none;
+    }
+
+    .update-info {
+        font-size: 19px;
+        padding: 0;
+        margin: 0;
+        margin-top: 8px;
+    }
